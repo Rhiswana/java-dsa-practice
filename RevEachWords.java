@@ -1,0 +1,34 @@
+class Solution {
+    void reverse(char str[],int low,int high){
+           while(low<=high){
+               char temp = str[low];
+               str[low] = str[high];
+               str[high] = temp;
+               low++;
+               high--;
+           } 
+        }     
+    
+    public String reverseWords(String s) {
+        // Code here
+           char str[] = s.toCharArray();
+        int start =0;
+        for(int end=0;end<str.length;end++){
+            if(str[end]==' '){
+                reverse(str,start,end-1);
+                start = end+1;
+            }
+        }
+         reverse(str,start,str.length-1);
+         String result = new String(str);
+         String ans = result.trim().replaceAll("\\s+"," ");
+         
+         return ans;
+        
+     }
+        
+    
+    
+}
+
+
